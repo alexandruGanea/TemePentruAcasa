@@ -49,6 +49,8 @@ public class Main {
         System.out.println("Specia carnivorului 1 este: " + carnivore1.getSpecies());
         // Vrem sa vedem numarul de membre ierbivor 2
         System.out.println("Numarul de membre al ierbivorului 2 este: " + herbivore2.getMemberNumber());
+        // Vrem sa vedem culoarea zburtoarei 1
+        System.out.println("The color of the " + aerialNonpredatory1.getSpecies() + " is " + aerialNonpredatory1.getColor());
         // Vrem sa vedem daca animalulele zburatoare sunt periculoase
         System.out.println(aerialNonpredatory1.bites());
         System.out.println(aerialPedatory1.bites());
@@ -59,12 +61,13 @@ public class Main {
         if (aquaticSaltWater.getSaltWater()) {
             System.out.println(" It lives in salty waters.");
         }
-
         // Vrem sa vedem care animal are mai multe picioare
         if (terrestrialAnimal3.getMemberNumber() > terrestrialAnimal1.getMemberNumber()) {
             System.out.println("The " + terrestrialAnimal3.getSpecies() + " has more legs than the " + terrestrialAnimal1.getSpecies() + ". No surprises there.");
         } else {
             System.out.println("The " + terrestrialAnimal3.getSpecies() + " has fewer legs than the " + terrestrialAnimal1.getSpecies() + "?? What is wrong with you, nature?");
         }
+
+
     }
 }
