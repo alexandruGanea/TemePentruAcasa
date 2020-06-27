@@ -80,7 +80,7 @@ public class Main {
         } catch (NotEnoughQuantityException e) {
             System.out.println("Nu mai este, ia si tu altceva " + e.getMessage());
         } catch (
-                AmountNotAcceptedException e) {
+                AmountNotAcceptedException e) { // de ce arata asa randul asta ? si urmatoarele ?
             System.out.println(e.getMessage());
         } catch (
                 FileNotFoundException e) {
