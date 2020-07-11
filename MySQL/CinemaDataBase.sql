@@ -1,11 +1,11 @@
 -- 1. Sa se modeleze o baza de date cu filme cu urmatoarele tabele:
 	-- Actori: nume, prenume, gen
-    -- Filme: titlu, anul lansarii, durata, limba, tara lansarii genul filmului, regia
+	-- Filme: titlu, anul lansarii, durata, limba, tara lansarii genul filmului, regia
 	-- Gen de filme: nume, tip vizionare
-    -- Regizor: nume, prenume
-    -- Reviewer: nume, prenume, varsta
-    -- Rating: reviewer-ul, filmul, numarul de stele
-    -- Movie cast: filmul, actorii, rol
+	-- Regizor: nume, prenume
+	-- Reviewer: nume, prenume, varsta
+	-- Rating: reviewer-ul, filmul, numarul de stele
+	-- Movie cast: filmul, actorii, rol
         
 drop database if exists cinema;
 create database if not exists cinema;
