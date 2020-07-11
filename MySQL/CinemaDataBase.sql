@@ -1,3 +1,12 @@
+-- 1. Sa se modeleze o baza de date cu filme cu urmatoarele tabele:
+	-- Actori: nume, prenume, gen
+    -- Filme: titlu, anul lansarii, durata, limba, tara lansarii genul filmului, regia
+	-- Gen de filme: nume, tip vizionare
+    -- Regizor: nume, prenume
+    -- Reviewer: nume, prenume, varsta
+    -- Rating: reviewer-ul, filmul, numarul de stele
+    -- Movie cast: filmul, actorii, rol
+        
 drop database if exists cinema;
 create database if not exists cinema;
 use cinema;
@@ -70,49 +79,49 @@ FOREIGN KEY (movie_id)
 REFERENCES movies(id)
 );
 
--- 1. Sa se insereze in tabel cel putin cate 10 randuri de fiecare tabel
-insert into actors(name,surname,gender) values ('Arnold', 'Schwarzenegger','M'); --
-insert into actors(name,surname,gender) values ('Sylvester', 'Stallone','M'); --
-insert into actors(name,surname,gender) values ('Sergiu', 'Nicolaescu','M'); --
-insert into actors(name,surname,gender) values ('Oana', 'Sarbu','F'); --
-insert into actors(name,surname,gender) values ('Harrison', 'Ford','M'); --
-insert into actors(name,surname,gender) values ('Mila', 'Jovovich','F'); --
+-- 2. Sa se insereze in tabel cel putin cate 10 randuri de fiecare tabel
+insert into actors(name,surname,gender) values('Arnold', 'Schwarzenegger','M');
+insert into actors(name,surname,gender) values('Sylvester', 'Stallone','M');
+insert into actors(name,surname,gender) values('Sergiu', 'Nicolaescu','M');
+insert into actors(name,surname,gender) values('Oana', 'Sarbu','F');
+insert into actors(name,surname,gender) values('Harrison', 'Ford','M');
+insert into actors(name,surname,gender) values('Mila', 'Jovovich','F');
 insert into actors(name,surname,gender) values ('Bruce', 'Willis','M');
-insert into actors(name,surname,gender) values ('Cameron', 'Diaz','F'); --
-insert into actors(name,surname,gender) values ('Ryan', 'Gosling','M'); --
-insert into actors(name,surname,gender) values ('Emma', 'Stone','F'); --
+insert into actors(name,surname,gender) values ('Cameron', 'Diaz','F');
+insert into actors(name,surname,gender) values ('Ryan', 'Gosling','M');
+insert into actors(name,surname,gender) values ('Emma', 'Stone','F');
 
-insert into directors(name,surname) values ('James','Cameron'); --
-insert into directors(name,surname) values ('Sylvester','Stallone'); --
-insert into directors(name,surname) values ('Dennis','Villeneuve'); --
-insert into directors(name,surname) values ('Damien','Chazelle'); --
-insert into directors(name,surname) values ('Sergiu','Nicolaescu'); --
-insert into directors(name,surname) values ('Nicolae','Corjos'); --
-insert into directors(name,surname) values ('Luc','Besson'); --
-insert into directors(name,surname) values ('Wolfgang','Peterson');
-insert into directors(name,surname) values ('John','Moore');
-insert into directors(name,surname) values ('Cameron','Crowe');
+insert into directors(name,surname) values('James','Cameron');
+insert into directors(name,surname) values('Sylvester','Stallone');
+insert into directors(name,surname) values('Dennis','Villeneuve');
+insert into directors(name,surname) values('Damien','Chazelle');
+insert into directors(name,surname) values('Sergiu','Nicolaescu');
+insert into directors(name,surname) values('Nicolae','Corjos');
+insert into directors(name,surname) values('Luc','Besson');
+insert into directors(name,surname) values('Wolfgang','Peterson');
+insert into directors(name,surname) values('John','Moore');
+insert into directors(name,surname) values('Cameron','Crowe');
 
-insert into genres(genre,projection) values('Action','2D'); --
+insert into genres(genre,projection) values('Action','2D');
 insert into genres(genre,projection) values('Action','3D');
-insert into genres(genre,projection) values('Drama','2D'); --
-insert into genres(genre,projection) values('Crime','2D'); --
-insert into genres(genre,projection) values('Mystery','3D'); --
-insert into genres(genre,projection) values('Musical','3D'); --
-insert into genres(genre,projection) values('Comedy','2D'); --
+insert into genres(genre,projection) values('Drama','2D');
+insert into genres(genre,projection) values('Crime','2D');
+insert into genres(genre,projection) values('Mystery','3D');
+insert into genres(genre,projection) values('Musical','3D');
+insert into genres(genre,projection) values('Comedy','2D');
 insert into genres(genre,projection) values('Sci-Fi','2D');
 insert into genres(genre,projection) values('Romance','2D');
 insert into genres(genre,projection) values('Thriller','2D');
 
-insert into movies(title, year,duration,country,director_id,genre_id) values ('The Terminator',1984,107,'USA',1,1);
-insert into movies(title, year,duration,country,director_id,genre_id) values ('Rocky',1976,145,'USA',2,3);
-insert into movies(title, year,duration,country,director_id,genre_id) values ('Blade Runner 2049',2017,164,'USA',3,5);
-insert into movies(title, year,duration,country,director_id,genre_id) values ('Un comisar acuza',1974,114,'Romania',5,4);
-insert into movies(title, year,duration,country,director_id,genre_id) values ('La La Land',2016,128,'USA',4,6);
-insert into movies(title, year,duration,country,director_id,genre_id) values ('Liceenii',1986,95,'Romania',6,9);
-insert into movies(title, year,duration,country,director_id,genre_id) values ('The Fifth Element',1997,126,'USA',7,8);
-insert into movies(title, year,duration,country,director_id,genre_id) values ('Air Force One',1997,124,'USA',8,10);
-insert into movies(title, year,duration,country,director_id,genre_id) values ('Vanilla Sky',2001,141,'USA',10,9);
+insert into movies(title, year,duration,country,director_id,genre_id) values('The Terminator',1984,107,'USA',1,1);
+insert into movies(title, year,duration,country,director_id,genre_id) values('Rocky',1976,145,'USA',2,3);
+insert into movies(title, year,duration,country,director_id,genre_id) values('Blade Runner 2049',2017,164,'USA',3,5);
+insert into movies(title, year,duration,country,director_id,genre_id) values('Un comisar acuza',1974,114,'Romania',5,4);
+insert into movies(title, year,duration,country,director_id,genre_id) values('La La Land',2016,128,'USA',4,6);
+insert into movies(title, year,duration,country,director_id,genre_id) values('Liceenii',1986,95,'Romania',6,9);
+insert into movies(title, year,duration,country,director_id,genre_id) values('The Fifth Element',1997,126,'USA',7,8);
+insert into movies(title, year,duration,country,director_id,genre_id) values('Air Force One',1997,124,'USA',8,10);
+insert into movies(title, year,duration,country,director_id,genre_id) values('Vanilla Sky',2001,141,'USA',10,9);
 insert into movies(title, year,duration,country,director_id,genre_id) values ('A Good Day To Die Hard',2013,101,'USA',9,2);
 
 insert into reviewers(name,surname,age) values('Karen','Valby',45);
@@ -126,16 +135,16 @@ insert into reviewers(name,surname,age) values('Kate','Cameron',35);
 insert into reviewers(name,surname,age) values('Alexis','Gunderson',44);
 insert into reviewers(name,surname,age) values('Mark','Harris',22);
 
-insert into ratings(stars,movie_id,reviewer_id) values (8.0,1,10);
-insert into ratings(stars,movie_id,reviewer_id) values (8.1,2,9);
-insert into ratings(stars,movie_id,reviewer_id) values (8.1,3,8);
-insert into ratings(stars,movie_id,reviewer_id) values (7.6,4,7);
-insert into ratings(stars,movie_id,reviewer_id) values (8.0,5,6);
-insert into ratings(stars,movie_id,reviewer_id) values (8.0,6,5);
-insert into ratings(stars,movie_id,reviewer_id) values (7.7,7,4);
-insert into ratings(stars,movie_id,reviewer_id) values (6.5,8,3);
-insert into ratings(stars,movie_id,reviewer_id) values (6.9,9,2);
-insert into ratings(stars,movie_id,reviewer_id) values (5.3,10,1);
+insert into ratings(stars,movie_id,reviewer_id) values(8.0,1,10);
+insert into ratings(stars,movie_id,reviewer_id) values(8.1,2,9);
+insert into ratings(stars,movie_id,reviewer_id) values(8.1,3,8);
+insert into ratings(stars,movie_id,reviewer_id) values(7.6,4,7);
+insert into ratings(stars,movie_id,reviewer_id) values(8.0,5,6);
+insert into ratings(stars,movie_id,reviewer_id) values(8.0,6,5);
+insert into ratings(stars,movie_id,reviewer_id) values(7.7,7,4);
+insert into ratings(stars,movie_id,reviewer_id) values(6.5,8,3);
+insert into ratings(stars,movie_id,reviewer_id) values(6.9,9,2);
+insert into ratings(stars,movie_id,reviewer_id) values(5.3,10,1);
 
 insert into movie_casts(part,actor_id,movie_id) values('secondary',8,9);
 insert into movie_casts(part,actor_id,movie_id) values('secondary',6,7);
