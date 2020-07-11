@@ -70,6 +70,7 @@ FOREIGN KEY (movie_id)
 REFERENCES movies(id)
 );
 
+-- 1. Sa se insereze in tabel cel putin cate 10 randuri de fiecare tabel
 insert into actors(name,surname,gender) values ('Arnold', 'Schwarzenegger','M'); --
 insert into actors(name,surname,gender) values ('Sylvester', 'Stallone','M'); --
 insert into actors(name,surname,gender) values ('Sergiu', 'Nicolaescu','M'); --
@@ -147,37 +148,69 @@ insert into movie_casts(part,actor_id,movie_id) values('main',9,3);
 insert into movie_casts(part,actor_id,movie_id) values('main',2,2);
 insert into movie_casts(part,actor_id,movie_id) values('main',1,1);
 
+-- 3. Sa se afiseze toti actorii de genul masculin
 select *from actors where gender = 'M';
+
+-- 4. Sa se afiseze actritele
 select * from actors where gender = 'F';
+
+-- 5. Sa se afiseze filmele lansate inainte de 1990
 select title from movies where year<1990;
-select title, genre from movies INNER JOIN genres on movies.genre_id = genres.id where genre = 'Drama' or genre= 'Romance'  ;
+
+-- 6. Sa se afiseze filmele de drama si romance
+select title, genre from movies INNER JOIN genres on movies.genre_id = genres.id where genre = 'Drama' or genre= 'Romance';
+
+-- 7. Sa se afiseze filmele care nu au fost lansate in Romania
 select title, year from movies where country <>'Romania';
+
+-- 8. Sa se afiseze filmele care au fost regizate de Steven Spielberg (un anumit regizor)
 select title, name, surname from movies INNER JOIN directors on movies.director_id = directors.id where directors.name = 'Sergiu' and directors.surname = 'Nicolaescu';
+
+-- 9. Sa se afiseze filmele care dureaza mai mult de 2 ore
 select title, duration from movies where duration>120;
-select title, duration from movies where duration>60 and duration<120;
+
+-- 10. Sa se afiseze cate filme dureaza intre o ora si doua ore
+select count(*) from movies where duration>60 and duration<120;
+
+-- 11.Sa se afiseze toti reviewerii mai mari de 18 ani
 select name, surname from reviewers where age<18;
+
+-- 12.Sa se afiseze cati revieweri sunt mai mici de 18ani
 select count(*) from reviewers where age<18;
+
+-- 13. Sa se afiseze filmele care au mai mult de 7 stele la review
 select movies.title, stars from ratings INNER JOIN movies on ratings.movie_id = movies.id where ratings.stars>7.0;
+
+-- 14. Sa se afiseze cate filme au mai putin de 7 stele
 select count(*) from ratings INNER JOIN movies on ratings.movie_id = movies.id where ratings.stars<7.0;
+
+-- 15. Sa se afiseze media de varsta a tuturor reviewerilor
 select avg(age) from reviewers;
+
+-- 16. Sa se afiseze durata medie a tuturor filmelor
 select avg(duration) from movies;
 
+-- 17. Sa se afiseze actorii dintr-un anumit film
 select name, surname, title from movie_casts 
 inner join actors on movie_casts.actor_id = actors.id
 inner join movies on movie_casts.movie_id = movies.id
 where movies.title = 'Vanilla Sky';
 
+-- 18. Sa se afiseze filmele in care un anumit actor a avut rolul principal
 select name, surname, part, title from movie_casts
 inner join actors on movie_casts.actor_id = actors.id
 inner join movies on movie_casts.movie_id = movies.id
 where movies.title = 'The Terminator' and movie_casts.part = 'main';
 
+-- 19. Sa se afiseze filmele de un anumit tip (actiune, etc)
 select title, genres.genre from movies inner join genres on movies.genre_id = genres.id
 where genre = 'Action';
 
+-- 20. Sa se afiseze filmele care nu sunt 3D
 select title, genres.projection from movies inner join genres on movies.genre_id = genres.id
 where projection <> '3D';
 
+-- 21. Sa se afiseze filmele comedie 2D
 select title, genres.genre, genres.projection from movies inner join genres on movies.genre_id = genres.id
 where genre = 'Romance' and projection = '2D';
 
